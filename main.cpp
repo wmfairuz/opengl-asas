@@ -1,6 +1,20 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 
+void tekanKekunci(unsigned char key, int x, int y) {
+	switch (key) {
+		case 27:  // Keluar dari program
+			exit(0) ;
+			break ;
+		default:
+			break ;
+	}
+}
+ 
+void lepasKekunci(unsigned char key, int x, int y) {
+ 
+}
+ 
 void papar(void){
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f); // Tukar background kepada warna merah
 	glClear(GL_COLOR_BUFFER_BIT); // Kosongkan buffer warna
@@ -29,6 +43,8 @@ int main(int argc, char** argv)
  
 	glutDisplayFunc(papar); 
         glutReshapeFunc(reshape);
+        glutKeyboardFunc(tekanKekunci);
+        glutKeyboardUpFunc(lepasKekunci);
  
 	glutMainLoop(); 
 	return 0; 
