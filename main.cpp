@@ -33,7 +33,8 @@ void papar(void){
 	glClear(GL_COLOR_BUFFER_BIT); // Kosongkan buffer warna
 	glLoadIdentity(); // 
 	glTranslatef(0.0f, 0.0f, -5.0f);  // alihkan kamera menjauhi paksi z 
- 	binaPrimitif();   // Bina bentuk primitif
+ 	//binaPrimitif();   // Bina bentuk primitif
+	glutWireSphere(1.0f, 8.0f, 8.0f);
 	glFlush(); // Hantar buffer ke tetingkap
 }
  
