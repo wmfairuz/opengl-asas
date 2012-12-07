@@ -3,9 +3,13 @@
 
 void binaPrimitif(void){
 	glBegin(GL_QUADS);
+	glColor3f(0.0f, 0.0f, 1.0f); // bucu berwarna biru
 	glVertex3f(-1.0f, -1.0f, 0.0f);
+	glColor3f(1.0f, 0.0f, 0.0f); // bucu berwarna merah
 	glVertex3f(-1.0f, 1.0f, 0.0f);
+	glColor3f(0.0f, 1.0f, 0.0f); // bucu berwarna hijau
 	glVertex3f(1.0f, 1.0f, 0.0f);
+	glColor3f(1.0f, 1.0f, 0.0f); // bucu berwarna kuning
 	glVertex3f(1.0f, -1.0f, 0.0f);
 	glEnd();
 }
@@ -54,8 +58,8 @@ int main(int argc, char** argv)
 	// Now, we define callbacks and functions for various tasks.
 	glutDisplayFunc(papar); 
 	glutReshapeFunc(reshape);
-        glutKeyboardFunc(tekanKekunci);
-        glutKeyboardUpFunc(lepasKekunci);
+	glutKeyboardFunc(tekanKekunci);
+    glutKeyboardUpFunc(lepasKekunci);
  
 	glutMainLoop(); // Start the main code
 	return 0;   /* ANSI C requires main to return int. */
