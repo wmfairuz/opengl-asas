@@ -34,16 +34,16 @@ void lepasKekunci(unsigned char key, int x, int y) {
  
 void papar(void){
 	if (naik) // arah ke atas
-		lokasi_y -= 0.0005f; // gerak ke atas pada paksi y  
+		lokasi_y -= 0.1f; // gerak ke atas pada paksi y  
 	else  // arah ke bawah  
-		lokasi_y += 0.0005f; // gerak ke bawah pada paksi y  
+		lokasi_y += 0.1f; // gerak ke bawah pada paksi y  
 	  
-	if (lokasi_y < -3.0f) // had atas  
+	if (lokasi_y < -2.0f) // had atas  
 		naik = false; // tukar arah 
-	else if (lokasi_y > 3.0f) // had bawah 
+	else if (lokasi_y > 2.0f) // had bawah 
 		naik = true; // tukar arah 
 	  
-	sudut_y += 0.005f; // putaran 
+	sudut_y += 1.0f; // putaran 
 	if (sudut_y > 360.0f) // jika lebih 360 darjah, tolak 360  
 		sudut_y -= 360.0f; 
 
@@ -57,7 +57,7 @@ void papar(void){
 	glRotatef(sudut_y, 0.0f, 1.0f, 0.0f);
 
 	glutWireSphere(1.0f, 8.0f, 8.0f);
-	glFlush(); // Hantar buffer ke tetingkap
+	glutSwapBuffers();
 }
  
 void reshape(int width, int height){
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
  
-	glutInitDisplayMode (GLUT_SINGLE);
+	glutInitDisplayMode(GLUT_DOUBLE);
  
 	glutInitWindowSize (500, 500); 
 	glutInitWindowPosition (100, 100);
