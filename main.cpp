@@ -54,14 +54,14 @@ void papar(void){
 	glLoadIdentity(); // 
 	glTranslatef(0.0f, 0.0f, -5.0f);  // alihkan kamera menjauhi paksi z 
  	//binaPrimitif();   // Bina bentuk primitif
-	
+	glScalef(1, 2.0, 1);
 	//glTranslatef(0.0f, lokasi_y, 0.0f);   
 	glRotatef(sudut_y, 0.0f, 1.0f, 0.0f);
 
 	glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
-	glutSolidSphere(1.0f, 8.0f, 8.0f);
-	glColor4f(0.0f, 1.0f, 0.0f, 0.3f);
-	glutSolidSphere(2.0f, 8.0f, 8.0f);
+	glutWireSphere(1.0f, 8.0f, 8.0f);
+	//glColor4f(0.0f, 1.0f, 0.0f, 0.3f);
+	//glutSolidSphere(2.0f, 8.0f, 8.0f);
 
 	glutSwapBuffers();
 }
