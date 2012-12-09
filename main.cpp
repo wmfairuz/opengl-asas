@@ -49,14 +49,20 @@ void papar(void){
 
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f); // Tukar background kepada warna merah
 	glClear(GL_COLOR_BUFFER_BIT); // Kosongkan buffer warna
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
 	glLoadIdentity(); // 
 	glTranslatef(0.0f, 0.0f, -5.0f);  // alihkan kamera menjauhi paksi z 
  	//binaPrimitif();   // Bina bentuk primitif
 	
-	glTranslatef(0.0f, lokasi_y, 0.0f);   
+	//glTranslatef(0.0f, lokasi_y, 0.0f);   
 	glRotatef(sudut_y, 0.0f, 1.0f, 0.0f);
 
-	glutWireSphere(1.0f, 8.0f, 8.0f);
+	glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
+	glutSolidSphere(1.0f, 8.0f, 8.0f);
+	glColor4f(0.0f, 1.0f, 0.0f, 0.3f);
+	glutSolidSphere(2.0f, 8.0f, 8.0f);
+
 	glutSwapBuffers();
 }
  
@@ -72,7 +78,7 @@ int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
  
-	glutInitDisplayMode(GLUT_DOUBLE);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
  
 	glutInitWindowSize (500, 500); 
 	glutInitWindowPosition (100, 100);
