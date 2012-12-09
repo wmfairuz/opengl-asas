@@ -48,20 +48,19 @@ void papar(void){
 		sudut_y -= 360.0f; 
 
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f); // Tukar background kepada warna merah
-	glClear(GL_COLOR_BUFFER_BIT); // Kosongkan buffer warna
-	glEnable(GL_BLEND);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Kosongkan buffer warna
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); 
 	glLoadIdentity(); // 
 	glTranslatef(0.0f, 0.0f, -5.0f);  // alihkan kamera menjauhi paksi z 
  	//binaPrimitif();   // Bina bentuk primitif
-	glScalef(1, 2.0, 1);
+	//glScalef(1, 2.0, 1);
 	//glTranslatef(0.0f, lokasi_y, 0.0f);   
 	glRotatef(sudut_y, 0.0f, 1.0f, 0.0f);
 
-	glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
-	glutWireSphere(1.0f, 8.0f, 8.0f);
-	//glColor4f(0.0f, 1.0f, 0.0f, 0.3f);
-	//glutSolidSphere(2.0f, 8.0f, 8.0f);
+	//glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
+	//glutWireSphere(1.0f, 8.0f, 8.0f);
+	glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+	glutSolidSphere(2.0f, 8.0f, 8.0f);
 
 	glutSwapBuffers();
 }
@@ -78,11 +77,17 @@ int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
  
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
  
 	glutInitWindowSize (500, 500); 
 	glutInitWindowPosition (100, 100);
 	glutCreateWindow ("Tetingkap pertama saya");
+
+	glEnable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_COLOR_MATERIAL);
  
 	glutDisplayFunc(papar); 
 	glutIdleFunc(papar);
